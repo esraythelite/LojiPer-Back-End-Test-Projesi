@@ -26,4 +26,14 @@ router.put("/:id", verifyToken, async(req, res) => {
     } catch (err){
         res.json(err);
     }
-})
+});
+
+
+router.get("/", verifyToken, async (req, res) => {
+    try {
+      const seats = await Seat.find();
+      res.status(200).json(seats);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
