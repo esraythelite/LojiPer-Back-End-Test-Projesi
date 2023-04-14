@@ -53,7 +53,7 @@ router.post('/login', (req, res) => {
         res.status(400).send(error.details[0].message);
         return;
     }
-    
+
     User.findOne({email})
     .then((user) => {
         if(!user) {
@@ -75,4 +75,5 @@ router.post('/login', (req, res) => {
         .send("Invalid email or password");
     });
 });
+
 module.exports = router;

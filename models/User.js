@@ -6,7 +6,10 @@ const UserSchema = new mongoose.Schema({
     gender: {type:String, required:true},
     email: {type:String, required:true, unique:true},
     phone: {type:String, required:true},
-    password: {type:String, required:true, min:6, max:1024}
+    password: {type:String, required:true, min:6, max:1024},
+    seats:[{
+        seatId: {type: String},
+    }]
 });
 
 module.exports = mongoose.model("User", UserSchema);
